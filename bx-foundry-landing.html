@@ -4,37 +4,47 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BX Foundry — Forging Bronx Scholars & Hustlers</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --iron:#15120F;
-    --iron-soft:#1E1A16;
-    --iron-line:#302A24;
-    --ember:#FF5A1F;
-    --ember-dim:#B8431A;
-    --steel:#3A5E82;
-    --steel-soft:#5C82A8;
-    --gold:#FFC145;
-    --bone:#F3EDE3;
-    --bone-dim:#C9C0B2;
-    --ash:#8A8378;
-    --radius:14px;
-  }
+/* 1. Font Imports */
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,700&f[]=general-sans@400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* 2. Custom Properties (Variables) */
+:root {
+  /* Industrial Forge Color Palette */
+  --iron: #0D0B0A;         /* Darker, richer charcoal base */
+  --iron-soft: #171412;    /* Card background tone */
+  --iron-line: #2B2520;    /* Border & dividing lines */
+  --ember: #FF3B00;        /* High-energy molten orange/red */
+  --ember-dim: #A82800;    /* Muted ember outline */
+  --steel: #2E4558;        /* Industrial slate steel */
+  --steel-soft: #4A6572;   /* Soft slate blue secondary accent */
+  --gold: #E5A93C;         /* Antique brass gold accent */
+  --bone: #F5EFEB;         /* Crisp bone white text */
+  --bone-dim: #BDB4AC;     /* Dimmed paragraph text */
+  --ash: #736B63;          /* Low-contrast captions & lines */
+
+  /* Niche Typography Tokens */
+  --font-display: 'Cabinet Grotesk', -apple-system, sans-serif;
+  --font-sans: 'General Sans', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* radius */
+  --radius:14px;
+}
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--iron);
     color:var(--bone);
-    font-family:'Inter',sans-serif;
+    font-family:var(--font-sans),sans-serif;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
   ::selection{ background:var(--ember); color:var(--iron); }
   a{color:inherit; text-decoration:none;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  .display{font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;}
+  .mono{font-family:var(--font-mono);}
+  .display{font-family:var(--font-display); letter-spacing:0.02em;}
 
   /* focus visibility */
   a:focus-visible, button:focus-visible, input:focus-visible{
@@ -50,7 +60,7 @@
   .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
   section{ position:relative; }
   .eyebrow{
-    font-family:'JetBrains Mono',monospace;
+    font-family:var(--font-mono);
     font-size:12.5px;
     letter-spacing:0.18em;
     text-transform:uppercase;
@@ -62,7 +72,7 @@
     content:''; width:22px; height:1px; background:var(--ember);
   }
   h2.section-title{
-    font-family:'Bebas Neue',sans-serif;
+    font-family:var(--font-display);
     font-size:clamp(38px, 5.4vw, 64px);
     line-height:0.98;
     letter-spacing:0.01em;
@@ -79,7 +89,7 @@
   /* ---------- Nav ---------- */
   header{
     position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(21,18,15,0.72);
+    background:rgba(13,11,10,0.72);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     border-bottom:1px solid var(--iron-line);
@@ -94,10 +104,10 @@
     width:34px; height:34px; border-radius:8px;
     background:linear-gradient(155deg, var(--ember), var(--ember-dim));
     display:flex; align-items:center; justify-content:center;
-    font-family:'Bebas Neue',sans-serif; font-size:16px; color:var(--iron);
-    box-shadow:0 0 0 1px rgba(255,255,255,0.06), 0 4px 14px rgba(255,90,31,0.35);
+    font-family:var(--font-display); font-size:16px; color:var(--iron);
+    box-shadow:0 0 0 1px rgba(255,255,255,0.06), 0 4px 14px rgba(255,59,0,0.35);
   }
-  .brand-name{ font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:0.03em; }
+  .brand-name{ font-family:var(--font-display); font-size:19px; letter-spacing:0.03em; }
 
   nav ul{ list-style:none; display:flex; gap:34px; }
   nav a{
@@ -130,20 +140,20 @@
     padding:140px 28px 100px;
     position:relative;
     background:
-      radial-gradient(60% 50% at 50% 100%, rgba(255,90,31,0.16), transparent 70%),
-      radial-gradient(40% 30% at 80% 15%, rgba(58,94,130,0.18), transparent 70%);
+      radial-gradient(60% 50% at 50% 100%, rgba(255,59,0,0.16), transparent 70%),
+      radial-gradient(40% 30% at 80% 15%, rgba(46,69,88,0.18), transparent 70%);
   }
   #ember-canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
 
   .hero-tag{
-    font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.2em;
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:0.2em;
     text-transform:uppercase; color:var(--steel-soft);
     border:1px solid var(--iron-line); padding:7px 16px; border-radius:999px;
     margin-bottom:32px;
     animation:fadeUp 0.8s cubic-bezier(.16,1,.3,1) both;
   }
   .hero h1{
-    font-family:'Bebas Neue',sans-serif;
+    font-family:var(--font-display);
     font-size:clamp(64px, 13vw, 160px);
     line-height:0.86;
     letter-spacing:0.01em;
@@ -159,7 +169,7 @@
     color:transparent;
     -webkit-text-stroke:1.5px var(--ember);
     animation:stampIn 0.9s cubic-bezier(.2,1,.3,1) 0.4s both;
-    text-shadow:0 0 34px rgba(255,90,31,0.35);
+    text-shadow:0 0 34px rgba(255,59,0,0.35);
   }
   @keyframes stampIn{
     0%{ opacity:0; transform:scale(1.24); filter:blur(6px); }
@@ -183,7 +193,7 @@
     position:relative; z-index:2;
   }
   .btn{
-    font-family:'Inter',sans-serif; font-weight:700; font-size:14.5px;
+    font-family:var(--font-sans); font-weight:700; font-size:14.5px;
     padding:14px 26px; border-radius:10px; border:none; cursor:pointer;
     display:inline-flex; align-items:center; gap:9px;
     transition:transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
@@ -191,19 +201,19 @@
   .btn-primary{
     background:linear-gradient(155deg, var(--ember), var(--ember-dim));
     color:var(--bone);
-    box-shadow:0 8px 26px rgba(255,90,31,0.32);
+    box-shadow:0 8px 26px rgba(255,59,0,0.32);
   }
-  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 12px 34px rgba(255,90,31,0.44); }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 12px 34px rgba(255,59,0,0.44); }
   .btn-ghost{
     background:transparent; color:var(--bone);
     border:1px solid var(--iron-line);
   }
-  .btn-ghost:hover{ border-color:var(--steel-soft); transform:translateY(-3px); background:rgba(58,94,130,0.1); }
+  .btn-ghost:hover{ border-color:var(--steel-soft); transform:translateY(-3px); background:rgba(46,69,88,0.1); }
 
   .scroll-cue{
     position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
     display:flex; flex-direction:column; align-items:center; gap:8px;
-    color:var(--ash); font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    color:var(--ash); font-family:var(--font-mono); font-size:10.5px;
     letter-spacing:0.16em; text-transform:uppercase;
   }
   .scroll-cue .line{ width:1px; height:34px; background:linear-gradient(var(--ash), transparent); animation:scrollPulse 1.8s ease-in-out infinite; }
@@ -249,11 +259,11 @@
     box-shadow:0 20px 50px rgba(0,0,0,0.35);
   }
   .plate .tag-num{
-    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ash);
+    font-family:var(--font-mono); font-size:12px; color:var(--ash);
     letter-spacing:0.1em; margin-bottom:20px; display:block;
   }
   .plate h3{
-    font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--bone); margin-bottom:14px; letter-spacing:0.01em;
+    font-family:var(--font-display); font-size:28px; color:var(--bone); margin-bottom:14px; letter-spacing:0.01em;
   }
   .plate p{ color:var(--bone-dim); font-size:15px; line-height:1.65; }
   .plate strong{ color:var(--gold); font-weight:600; }
@@ -274,16 +284,16 @@
   .box-card.scholar .box-head{ background:linear-gradient(160deg, var(--steel), #1f3347); }
   .box-card.hustle .box-head{ background:linear-gradient(160deg, var(--ember), #7a2c10); }
   .box-badge{
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.14em;
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em;
     text-transform:uppercase; color:rgba(255,255,255,0.75);
     display:inline-block; margin-bottom:14px;
   }
-  .box-head h3{ font-family:'Bebas Neue',sans-serif; font-size:40px; color:#fff; letter-spacing:0.01em; }
+  .box-head h3{ font-family:var(--font-display); font-size:40px; color:#fff; letter-spacing:0.01em; }
   .box-head p.for{ color:rgba(255,255,255,0.82); font-size:14.5px; margin-top:6px; font-style:italic; }
   .price-tag{
     position:absolute; top:32px; right:32px; text-align:right;
   }
-  .price-tag .amount{ font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; color:#fff; }
+  .price-tag .amount{ font-family:var(--font-mono); font-size:24px; font-weight:700; color:#fff; }
   .price-tag .per{ font-size:11px; color:rgba(255,255,255,0.7); display:block; }
 
   .box-body{ background:var(--iron); padding:30px 32px 34px; }
@@ -300,8 +310,8 @@
     background:transparent; color:var(--bone); font-weight:700; font-size:14px; cursor:pointer;
     transition:background 0.3s, border-color 0.3s, transform 0.25s;
   }
-  .box-card.scholar .box-cta:hover{ background:rgba(58,94,130,0.16); border-color:var(--steel-soft); transform:translateY(-2px); }
-  .box-card.hustle .box-cta:hover{ background:rgba(255,90,31,0.14); border-color:var(--ember); transform:translateY(-2px); }
+  .box-card.scholar .box-cta:hover{ background:rgba(46,69,88,0.16); border-color:var(--steel-soft); transform:translateY(-2px); }
+  .box-card.hustle .box-cta:hover{ background:rgba(255,59,0,0.14); border-color:var(--ember); transform:translateY(-2px); }
 
   /* ---------- Who we serve — segmented control ---------- */
   .serve{ padding:110px 0; background:var(--iron); }
@@ -310,7 +320,7 @@
     border-radius:999px; padding:4px; margin-top:40px; gap:4px;
   }
   .segmented button{
-    font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600;
+    font-family:var(--font-sans); font-size:13.5px; font-weight:600;
     padding:10px 22px; border-radius:999px; border:none; background:transparent;
     color:var(--bone-dim); cursor:pointer; position:relative; z-index:2;
     transition:color 0.35s;
@@ -336,7 +346,7 @@
     background:var(--iron-soft); border:1px solid var(--iron-line); border-radius:var(--radius);
     padding:28px 26px;
   }
-  .serve-card .who{ font-family:'Bebas Neue',sans-serif; font-size:22px; margin-bottom:10px; }
+  .serve-card .who{ font-family:var(--font-display); font-size:22px; margin-bottom:10px; }
   .serve-card.scholar .who{ color:var(--steel-soft); }
   .serve-card.hustle .who{ color:var(--ember); }
   .serve-card p{ color:var(--bone-dim); font-size:14.5px; line-height:1.6; }
@@ -356,24 +366,24 @@
     width:56px; height:56px; border-radius:50%;
     background:var(--iron); border:2px solid var(--iron-line);
     display:flex; align-items:center; justify-content:center;
-    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:17px; color:var(--bone-dim);
+    font-family:var(--font-mono); font-weight:700; font-size:17px; color:var(--bone-dim);
     margin-bottom:22px; position:relative; z-index:2;
     transition:border-color 0.4s, color 0.4s, box-shadow 0.4s;
   }
   .step.in .step-node{
     border-color:var(--ember); color:var(--gold);
-    box-shadow:0 0 0 6px rgba(255,90,31,0.12), 0 0 20px rgba(255,90,31,0.3);
+    box-shadow:0 0 0 6px rgba(255,59,0,0.12), 0 0 20px rgba(255,59,0,0.3);
   }
-  .step h4{ font-family:'Bebas Neue',sans-serif; font-size:19px; margin-bottom:8px; letter-spacing:0.01em; }
+  .step h4{ font-family:var(--font-display); font-size:19px; margin-bottom:8px; letter-spacing:0.01em; }
   .step p{ font-size:13.5px; color:var(--bone-dim); line-height:1.55; }
 
   /* ---------- Impact / signup ---------- */
   .impact{
     padding:130px 0 140px;
     text-align:center;
-    background:radial-gradient(50% 60% at 50% 0%, rgba(255,90,31,0.12), transparent 70%);
+    background:radial-gradient(50% 60% at 50% 0%, rgba(255,59,0,0.12), transparent 70%);
   }
-  .impact h2{ font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,6vw,72px); line-height:1.02; }
+  .impact h2{ font-family:var(--font-display); font-size:clamp(40px,6vw,72px); line-height:1.02; }
   .impact .lede{ margin:20px auto 0; max-width:560px; text-align:center; }
 
   .signup{
@@ -382,7 +392,7 @@
   }
   .signup input{
     flex:1; padding:15px 18px; border-radius:10px; border:1px solid var(--iron-line);
-    background:var(--iron-soft); color:var(--bone); font-size:14.5px; font-family:'Inter',sans-serif;
+    background:var(--iron-soft); color:var(--bone); font-size:14.5px; font-family:var(--font-sans);
     transition:border-color 0.3s;
   }
   .signup input::placeholder{ color:var(--ash); }
@@ -508,7 +518,7 @@
       <div class="plate reveal">
         <span class="tag-num mono">PATTERN — KIDS</span>
         <h3>Curiosity is fading</h3>
-        <p>School has quietly become about <strong>"getting through"</strong> instead of genuine exploration. Fewer kids are asking questions, chasing a hobby, or getting excited to learn something new.</p>
+        <p>School has quietly become about <strong>"getting through"</strong> instead of genuine exploration. Fewer kids are asking questions, chasing a hobby, or getting excited to learn something ne[...]
       </div>
       <div class="plate reveal">
         <span class="tag-num mono">PATTERN — ADULTS</span>
@@ -704,7 +714,7 @@
         drift: (Math.random()-0.5)*0.6,
         life: 0,
         maxLife: 300 + Math.random()*260,
-        hue: Math.random() > 0.5 ? '255,90,31' : '255,193,69'
+        hue: Math.random() > 0.5 ? '255,59,0' : '255,169,60'
       };
     }
     function init(){
