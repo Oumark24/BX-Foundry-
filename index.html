@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<canvas id="ember-canvas" aria-hidden="true"></canvas>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <header>
   <div class="nav-inner">
@@ -20,7 +20,7 @@
       <div class="brand-mark">BX</div>
       <span class="brand-name">FOUNDRY</span>
     </div>
-    <nav>
+    <nav aria-label="Primary navigation">
       <ul>
         <li><a href="#why" data-nav>Why</a></li>
         <li><a href="#boxes" data-nav>The Boxes</a></li>
@@ -28,10 +28,14 @@
         <li><a href="#how" data-nav>How It Works</a></li>
       </ul>
     </nav>
-    <button class="nav-cta" data-target="impact">Get Involved</button>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-navigation">&#9776;</button>
+    <button class="nav-cta" onclick="document.getElementById('impact').scrollIntoView()">Get Involved</button>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
   </div>
 </header>
+
+<main id="main-content">
+
+<canvas id="ember-canvas"></canvas>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -42,13 +46,13 @@
   </h1>
   <p class="hero-lede">We forge curiosity in Bronx kids and courage in Bronx entrepreneurs — one box, delivered by hand, every month.</p>
   <div class="hero-ctas">
-    <button class="btn btn-primary" data-target="boxes">Explore The Boxes</button>
-    <button class="btn btn-ghost" data-target="why">Why We Started</button>
+    <button class="btn btn-primary" onclick="document.getElementById('boxes').scrollIntoView()">Explore The Boxes</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('why').scrollIntoView()">Why We Started</button>
   </div>
-  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
 </section>
 
-<div class="seam" role="separator" aria-hidden="true"></div>
+<div class="seam"></div>
 
 <!-- WHY -->
 <section class="why" id="why">
@@ -72,7 +76,7 @@
   </div>
 </section>
 
-<div class="seam" role="separator" aria-hidden="true"></div>
+<div class="seam"></div>
 
 <!-- BOXES -->
 <section class="boxes" id="boxes">
@@ -96,7 +100,7 @@
             <li>School supplies restock</li>
             <li>A note & prompt from a local mentor</li>
           </ul>
-          <button class="box-cta" data-action="notify" data-box="scholar">Notify Me — Scholar Box</button>
+          <button class="box-cta">Notify Me — Scholar Box</button>
         </div>
       </div>
 
@@ -114,14 +118,14 @@
             <li>Monthly tip sheet from a local owner</li>
             <li>Starter branding materials</li>
           </ul>
-          <button class="box-cta" data-action="notify" data-box="hustle">Notify Me — Hustle Box</button>
+          <button class="box-cta">Notify Me — Hustle Box</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="seam" role="separator" aria-hidden="true"></div>
+<div class="seam"></div>
 
 <!-- WHO WE SERVE -->
 <section class="serve" id="serve">
@@ -129,8 +133,8 @@
     <div class="eyebrow">Who we serve</div>
     <h2 class="section-title reveal">Every box has two<br>kinds of buyer.</h2>
 
-    <div class="segmented" role="tablist" aria-label="Who we serve selector">
-      <div class="seg-thumb" id="segThumb" aria-hidden="true"></div>
+    <div class="segmented" role="tablist">
+      <div class="seg-thumb" id="segThumb"></div>
       <button class="active" data-seg="direct" role="tab" aria-selected="true">Direct Customer</button>
       <button data-seg="partner" role="tab" aria-selected="false">Institutional Partner</button>
     </div>
@@ -160,7 +164,7 @@
   </div>
 </section>
 
-<div class="seam" role="separator" aria-hidden="true"></div>
+<div class="seam"></div>
 
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
@@ -168,23 +172,23 @@
     <div class="eyebrow">How it works</div>
     <h2 class="section-title reveal">Lean by design —<br>lowest cost, highest effort.</h2>
 
-    <div class="line-track" role="list">
-      <div class="step reveal" role="listitem">
+    <div class="line-track">
+      <div class="step reveal">
         <div class="step-node mono">01</div>
         <h4>Pre-order</h4>
         <p>Payment collected before a single item is bought — zero inventory risk.</p>
       </div>
-      <div class="step reveal" role="listitem">
+      <div class="step reveal">
         <div class="step-node mono">02</div>
         <h4>Source local</h4>
         <p>Bulk-bought from Bronx wholesalers and small vendors, not big-box retailers.</p>
       </div>
-      <div class="step reveal" role="listitem">
+      <div class="step reveal">
         <div class="step-node mono">03</div>
         <h4>Pack by hand</h4>
         <p>No warehouse. Every box is assembled at home to start.</p>
       </div>
-      <div class="step reveal" role="listitem">
+      <div class="step reveal">
         <div class="step-node mono">04</div>
         <h4>Deliver locally</h4>
         <p>Hand-delivered nearby to build trust; USPS flat-rate covers the rest.</p>
@@ -196,27 +200,27 @@
 <!-- IMPACT / SIGNUP -->
 <section class="impact" id="impact">
   <div class="wrap">
-    <div class="eyebrow center">Get involved</div>
+    <div class="eyebrow" style="justify-content:center;">Get involved</div>
     <h2 class="reveal">Low cost. High effort.<br>Real impact.</h2>
     <p class="lede reveal">Be first to know when Scholar Box and Hustle Box open for pre-order in your part of the Bronx.</p>
 
     <form class="signup reveal" id="signupForm">
       <input type="email" id="emailInput" placeholder="you@email.com" required aria-label="Email address" />
       <button type="submit" id="signupBtn">
-        <span class="spinner" id="signupSpinner" aria-hidden="true"></span>
+        <span class="spinner" id="signupSpinner"></span>
         <span id="signupBtnText">Notify Me</span>
       </button>
     </form>
 
     <div class="confirm-wrap" id="confirmWrap">
       <div class="skeleton" id="skeletonCard">
-        <div class="sk-dot" aria-hidden="true"></div>
+        <div class="sk-dot"></div>
         <div class="sk-lines">
           <div class="sk-line w60"></div>
           <div class="sk-line w40"></div>
         </div>
       </div>
-      <div class="success-card" id="successCard" role="status" aria-live="polite">
+      <div class="success-card" id="successCard">
         <div class="success-icon">&#10003;</div>
         <p><strong>You're on the list.</strong><br>We'll email you the moment pre-orders open.</p>
       </div>
@@ -224,10 +228,12 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap foot-inner">
     <div class="brand">
-      <div class="brand-mark small">BX</div>
+      <div class="brand-mark" style="width:26px;height:26px;font-size:12px;">BX</div>
       <span class="brand-name">FOUNDRY</span>
     </div>
     <p>Forged in the Bronx. Built for the Bronx.</p>
